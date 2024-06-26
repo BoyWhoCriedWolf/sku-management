@@ -5,8 +5,6 @@ import { API_BASE_URL } from "../services/api-urls";
 axios.defaults.baseURL = API_BASE_URL;
 // content type
 axios.defaults.headers.post["Content-Type"] = "application/json";
-// basic auth
-axios.defaults.headers.common["WWW-Authenticate"] = `Basic realm="api"`;
 
 // content type
 const authUser: any = sessionStorage.getItem("authUser");
