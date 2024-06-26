@@ -11,7 +11,7 @@ const SkusList = () => {
       title="Sku Category"
       columns={[
         { headerName: "Medication Name", field: "medication_name" },
-        { headerName: "Dose", field: "Dose" },
+        { headerName: "Dose", field: "dose" },
         { headerName: "Unit", field: "unit" },
         { headerName: "Presentation", field: "presentation" },
         { headerName: "Countries", field: "countries" },
@@ -22,7 +22,7 @@ const SkusList = () => {
           name: "medication_name",
           type: FieldType.Text,
         },
-        { displayName: "Dose", name: "Dose", type: FieldType.MultiLineText },
+        { displayName: "Dose", name: "dose", type: FieldType.MultiLineText },
         { displayName: "Unit", name: "unit", type: FieldType.Text },
         {
           displayName: "Presentation",
