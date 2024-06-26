@@ -6,9 +6,9 @@ export const API_BASE_URL =
 
 export const API_URLS = {
   // skus
-  SKU_CREATE: "/sku/create",
-  SKU_UPDATE: "/sku/update",
-  SKU_DELETE: "/sku/delete",
-  SKU_GETS: "/sku/list",
-  SKU_GET: "/sku/get",
+  SKU_CREATE: "/skus",
+  SKU_UPDATE: "/skus",
+  SKU_DELETE: "/skus",
+  SKU_GETS: "/skus",
+  SKU_GET: "/skus",
 };
