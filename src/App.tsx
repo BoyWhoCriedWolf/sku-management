@@ -1,11 +1,17 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import { ThemeProvider } from "@mui/material";
+import { SnackbarProvider } from "notistack";
+import "./App.css";
 import THEME from "./theme";
+import SkusPage from "./pages/skus";
 
 function App() {
-  return <ThemeProvider theme={THEME.LIGHT}>App</ThemeProvider>;
+  return (
+    <ThemeProvider theme={THEME.LIGHT}>
+      <SnackbarProvider>
+        <SkusPage />
+      </SnackbarProvider>
+    </ThemeProvider>
+  );
 }
 
 export default App;
