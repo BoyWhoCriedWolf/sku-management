@@ -5,10 +5,10 @@ export const API_BASE_URL =
     : "https://sku-management-api.onrender.com";
 
 export const API_URLS = {
-  // contacts
-  CONTACT_CREATE: "/contact/create",
-  CONTACT_UPDATE: "/contact/update",
-  CONTACT_DELETE: "/contact/delete",
-  CONTACT_GETS: "/contact/list",
-  CONTACT_GET: "/contact/get",
+  // skus
+  SKU_CREATE: "/sku/create",
+  SKU_UPDATE: "/sku/update",
+  SKU_DELETE: "/sku/delete",
+  SKU_GETS: "/sku/list",
+  SKU_GET: "/sku/get",
 };

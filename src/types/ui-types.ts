@@ -1,5 +1,4 @@
 import { GridSize, SxProps, Theme } from "@mui/material";
-import { GridColDef } from "@mui/x-data-grid";
 import { ReactNode } from "react";
 
 export type ColorVariant =
@@ -22,46 +21,13 @@ export interface GeneralOption {
 }
 
 export enum FieldType {
-  // TwoChoices
-  TwoChoices = "Two Choices",
-  DropDownYesNo = "Drop Down",
-  Checkbox = "Checkbox",
-  Toggle = "Toggle",
-
   // Text
   Text = "Text",
   Email = "Email",
-  URL = "URL",
-  Age = "Age",
-  Phone = "Phone",
-  Decimal = "Decimal",
-  Integer = "Integer",
-  Money = "Money",
-  Percent = "Percent",
   MultiLineText = "MultiLine Text",
   Password = "Password",
-
-  // Date time
-  DateTime = "Date Time",
-  DateOnly = "Date Only",
-  TimeOnly = "Time Only",
-
-  // Radio
-  Radio = "Radio",
-
-  // Integer
-  None = "None",
-  TimeDuration = "Time Duration",
-  WholeNumber = "Whole Number",
-
-  // Lookup
-  Lookup = "Lookup",
-
-  // Money
-
-  // Choice
-  Choice = "Choice",
-  MultiSelectChoice = "Multi-select Choice",
+  Decimal = "Decimal",
+  Integer = "Integer",
 
   // Custom
   Custom = "Custom",
@@ -91,19 +57,9 @@ export interface StaticField {
 
   placeholder?: string | boolean;
   errorMessage?: string;
-
-  // for select fields
-  disableIfNoOption?: boolean;
-  options?: Array<any>;
-  getOptions?: () => Promise<Array<any>>;
-  getOptionLabel?: (option: any) => string;
+  
   getOptionValue?: (option: any) => any;
   setOptionValue?: (option: any) => any;
-
-  // for table fields
-  columns?: Array<GridColDef>;
-  rowSelection?: "single" | "multiple";
-  fields?: Array<Partial<StaticField>>;
 
   // readOnly
   readOnly?: boolean;
@@ -123,16 +79,9 @@ export interface StaticField {
   render?: ReactNode;
   renderF?: (p?: any, onChange?: DispatchFunction) => ReactNode;
 
-  // for choice
-  optionLabelField?: string;
-  defaultOptionLabel?: string;
-  joinedFieldName?: string;
-
   // show label
   isLabel?: boolean;
 
   // style
   sx?: SxProps<Theme>;
 }
-
-export type Total = { [key: string]: number | Total };

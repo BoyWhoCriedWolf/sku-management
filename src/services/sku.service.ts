@@ -8,7 +8,7 @@ import { APIResponseType } from "./types/response.types";
 class SkuService extends APIService<Sku> {
   async gets(): Promise<APIResponseType<Sku[]>> {
     try {
-      const data = await apiClient.get(API_URLS.CONTACT_GETS);
+      const data = await apiClient.get(API_URLS.SKU_GETS);
       return data as APIResponseType<Sku[]>;
     } catch (error) {
       const axiosError = error as AxiosError<APIResponseType>;
@@ -23,7 +23,7 @@ class SkuService extends APIService<Sku> {
 
   async get({ id = "" }: { id: string }): Promise<APIResponseType<Sku>> {
     try {
-      const data = await apiClient.get(`${API_URLS.CONTACT_GET}/${id}`);
+      const data = await apiClient.get(`${API_URLS.SKU_GET}/${id}`);
       return data as APIResponseType<Sku>;
     } catch (error) {
       const axiosError = error as AxiosError<APIResponseType>;
@@ -39,8 +39,8 @@ class SkuService extends APIService<Sku> {
     try {
       const ret =
         data?.id === "new" || !data?.id
-          ? await apiClient.post(API_URLS.CONTACT_CREATE, data)
-          : await apiClient.put(`${API_URLS.CONTACT_UPDATE}/${data?.id}`, data);
+          ? await apiClient.post(API_URLS.SKU_CREATE, data)
+          : await apiClient.put(`${API_URLS.SKU_UPDATE}/${data?.id}`, data);
       return ret as APIResponseType<Sku>;
     } catch (error) {
       const axiosError = error as AxiosError<APIResponseType>;
@@ -58,7 +58,7 @@ class SkuService extends APIService<Sku> {
     id?: string;
   }): Promise<APIResponseType<boolean>> {
     try {
-      const ret = await apiClient.delete(`${API_URLS.CONTACT_DELETE}/${id}`);
+      const ret = await apiClient.delete(`${API_URLS.SKU_DELETE}/${id}`);
       return ret as APIResponseType<boolean>;
     } catch (error) {
       const axiosError = error as AxiosError<APIResponseType>;
