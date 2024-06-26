@@ -9,7 +9,12 @@ class SkuService extends APIService<Sku> {
   async gets(): Promise<APIResponseType<Sku[]>> {
     try {
       const data = await apiClient.get(API_URLS.SKU_GETS);
-      return data as APIResponseType<Sku[]>;
+      return {
+        data: data as unknown as Sku[],
+        code: 200,
+        msg: "Successfully loaded",
+        success: true,
+      } as APIResponseType<Sku[]>;
     } catch (error) {
       const axiosError = error as AxiosError<APIResponseType>;
       return {
@@ -24,7 +29,12 @@ class SkuService extends APIService<Sku> {
   async get({ id = "" }: { id: string }): Promise<APIResponseType<Sku>> {
     try {
       const data = await apiClient.get(`${API_URLS.SKU_GET}/${id}`);
-      return data as APIResponseType<Sku>;
+      return {
+        data: data as unknown as Sku,
+        code: 200,
+        msg: "Successfully loaded",
+        success: true,
+      } as APIResponseType<Sku>;
     } catch (error) {
       const axiosError = error as AxiosError<APIResponseType>;
       return {
@@ -41,7 +51,12 @@ class SkuService extends APIService<Sku> {
         data?.id === "new" || !data?.id
           ? await apiClient.post(API_URLS.SKU_CREATE, data)
           : await apiClient.put(`${API_URLS.SKU_UPDATE}/${data?.id}`, data);
-      return ret as APIResponseType<Sku>;
+      return {
+        data: ret as unknown as Sku,
+        code: 200,
+        msg: "Successfully loaded",
+        success: true,
+      } as APIResponseType<Sku>;
     } catch (error) {
       const axiosError = error as AxiosError<APIResponseType>;
       return {
@@ -59,7 +74,12 @@ class SkuService extends APIService<Sku> {
   }): Promise<APIResponseType<boolean>> {
     try {
       const ret = await apiClient.delete(`${API_URLS.SKU_DELETE}/${id}`);
-      return ret as APIResponseType<boolean>;
+      return {
+        data: ret as unknown as boolean,
+        code: 200,
+        msg: "Successfully loaded",
+        success: true,
+      } as APIResponseType<boolean>;
     } catch (error) {
       const axiosError = error as AxiosError<APIResponseType>;
       return {
