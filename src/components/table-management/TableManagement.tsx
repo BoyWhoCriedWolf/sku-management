@@ -204,10 +204,10 @@ function TableManagement<T = GridValidRowModel>({
     const ret = await service.gets(filterFormData);
     console.log(ret);
     setIsLoading(false);
-    if (ret.success) {
-      setData(ret.data ?? []);
-    } else if (enableMockup) {
+     if (enableMockup) {
       setData([{ id: "mockup" } as T]);
+    } else if (ret.success) {
+      setData(ret.data ?? []);
     }
   };
 
@@ -218,9 +218,7 @@ function TableManagement<T = GridValidRowModel>({
     console.log(ret);
     setIsLoading(false);
 
-    if (ret.success) {
-      loadData();
-    } else if (enableMockup) {
+    if (enableMockup) {
       if (extractId(formData)) {
         setData((s = []) => {
           const matchIndex = s.findIndex(
@@ -238,6 +236,8 @@ function TableManagement<T = GridValidRowModel>({
             [...s, { ...formData, id: Math.random().toString() }] as Array<T>
         );
       }
+    } else if (ret.success) {
+      loadData();
     } else {
       setIsOpen(true);
       snb.enqueueSnackbar(ret.msg ?? "Failed to save (Unknown Error)", {
