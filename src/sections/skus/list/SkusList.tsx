@@ -35,6 +35,7 @@ const SkusList = () => {
           type: FieldType.MultiLineText,
         },
       ]}
+      enableMockup
     />
   );
 };
